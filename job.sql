@@ -533,6 +533,14 @@ select avg(avg_salary)as average_department_salary from(select avg (salary)as av
 |    616 | jayakrishnan | t r       | tr@gmail.com    |   9988776655 | 2020-10-08 |    104 |  20000 |        614 |      2 |
 +--------+--------------+-----------+-----------------+--------------+------------+--------+--------+------------+--------+
 
+  13)
+select employees.first_name,employees.last_name,department.deptname from employees join department on employees.deptid=department.deptid where department.deptid in(1,2,3);
++--------------+-----------+-------------+
+| first_name   | last_name | deptname    |
++--------------+-----------+-------------+
+| jayakrishnan | t r       | electronics |
++--------------+-----------+-------------+
+
 
 
 
