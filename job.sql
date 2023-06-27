@@ -511,6 +511,18 @@ select avg(avg_salary)as average_department_salary from(select avg (salary)as av
 |            73888.88890000 |
 +---------------------------+
 
+  10)
+ select emp_id,salary,(salary - (select avg (salary)from employees)) as salary_difference,(select avg(salary) from employees)as average_salary from employees;
++--------+--------+-------------------+----------------+
+| emp_id | salary | salary_difference | average_salary |
++--------+--------+-------------------+----------------+
+|      1 | 450000 |       335000.0000 |    115000.0000 |
+|    600 |  45000 |       -70000.0000 |    115000.0000 |
+|    604 |  35000 |       -80000.0000 |    115000.0000 |
+|    614 |  25000 |       -90000.0000 |    115000.0000 |
+|    616 |  20000 |       -95000.0000 |    115000.0000 |
++--------+--------+-------------------+----------------+
+
 
 
 
