@@ -501,6 +501,17 @@ mysql> select * from dependants;
 |       4 | bio technology |
 +---------+----------------+
 
+9)
+  
+9)
+select avg(avg_salary)as average_department_salary from(select avg (salary)as avg_salary from employees group by deptid)as subquery_alias;
++---------------------------+
+| average_department_salary |
++---------------------------+
+|            73888.88890000 |
++---------------------------+
+
+
 
 
 
