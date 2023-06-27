@@ -511,7 +511,7 @@ select avg(avg_salary)as average_department_salary from(select avg (salary)as av
 |            73888.88890000 |
 +---------------------------+
 
-  10)
+10)
  select emp_id,salary,(salary - (select avg (salary)from employees)) as salary_difference,(select avg(salary) from employees)as average_salary from employees;
 +--------+--------+-------------------+----------------+
 | emp_id | salary | salary_difference | average_salary |
@@ -522,6 +522,18 @@ select avg(avg_salary)as average_department_salary from(select avg (salary)as av
 |    614 |  25000 |       -90000.0000 |    115000.0000 |
 |    616 |  20000 |       -95000.0000 |    115000.0000 |
 +--------+--------+-------------------+----------------+
+
+12)
+ SELECT employees.* FROM employees LEFT JOIN dependants ON employees.emp_id=dependants.emp_id WHERE dependants.emp_id IS NULL;
++--------+--------------+-----------+-----------------+--------------+------------+--------+--------+------------+--------+
+| emp_id | first_name   | last_name | email           | phone_number | hire_date  | job_id | salary | manager_id | deptid |
++--------+--------------+-----------+-----------------+--------------+------------+--------+--------+------------+--------+
+|    604 | tincy        | babu      | tincy@gmail.com |   9988766651 | 2023-11-02 |    105 |  35000 |          1 |      5 |
+|    614 | akhil        | s         | akhil@gmail.com |   9078776635 | 2023-11-02 |    102 |  25000 |       NULL |      4 |
+|    616 | jayakrishnan | t r       | tr@gmail.com    |   9988776655 | 2020-10-08 |    104 |  20000 |        614 |      2 |
++--------+--------------+-----------+-----------------+--------------+------------+--------+--------+------------+--------+
+
+
 
 
 
